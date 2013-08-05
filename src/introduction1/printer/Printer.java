@@ -7,5 +7,16 @@ package introduction1.printer;
  * Time: 17:09
  * To change this template use File | Settings | File Templates.
  */
-public class Printer {
+public class Printer implements Runnable {
+    private String message;
+
+    public Printer(String message) {
+        this.message = message;
+    }
+
+    public void run() {
+        for (int i = 0; i < 10000; i++) {
+            System.out.print(message);
+        }
+    }
 }
