@@ -1,5 +1,8 @@
 package introduction1.printer;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+
 /**
  * Created with IntelliJ IDEA.
  * User: takasianpride
@@ -9,7 +12,8 @@ package introduction1.printer;
  */
 public class Main {
     public static void main(String[] args) {
-        new Thread(new Printer("hogehoge")).start();
-        new Thread(new Printer("fugafuga")).start();
+        ThreadFactory factory = Executors.defaultThreadFactory();
+        factory.newThread(new Printer("hogehoge")).start();
+        factory.newThread(new Printer("FUGA")).start();
     }
 }
